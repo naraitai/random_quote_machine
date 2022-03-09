@@ -1,0 +1,199 @@
+/*
+freeCodeCamp 'Front End Development Libraries' project
+
+Task: Create a random quote machine.
+Tests: The project has 11 requirements (user stories)
+    Include:
+    1 - A wrapper element with an id of 'quote-box'.
+    2 - An element with an id of 'text' inside 'quote-box'.
+    3 - An element with an id of 'author' inside 'quote-box'.
+    4 - A clickable element witn an id of 'new-quote' inside 'quote-box'
+    5 - A clickable <a> element with an id of 'tweet-quote' inside 'quote-box'.
+    6 - Display a random quote inside 'text' on first load.
+    7 - Display a random quote's author inside 'author' on first load.
+    8 - Display a new random quote inside 'text' on button click.
+    9 - Display a new random quote's author inside 'author' on button click.
+    10 - An <a> element that allows user to post quote to twitter using 'twitter.com/intent/tweet' in href.
+    11 - A horizontally centered 'quote-box' element.
+
+Completion: Submit URL to working project with all tests passing.
+*/
+
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+        0.  Global Setup
+        1.  Typography
+        2.  Quote box
+            a. Category buttons
+            b. Text content
+            c. Bottom buttons
+----------------------------------------------------------------*/
+
+
+/*-------------------------------------------------------------
+    0. Global Setup
+---------------------------------------------------------------*/
+
+@mixin hover {
+    transform: scale(1.1);
+}
+
+@mixin trans {
+    transition: .3s;
+}
+
+/* Colour palette */
+$dominant: #F0F3F5;
+$complementary: #161B33;
+$accent: #01A7C2;
+$highlight: #EE6C4D;
+
+/* Default font */
+$font-df: 'Montserrat', sans-serif;
+
+body {
+    height: 100vh;
+    background-color: $complementary;
+}
+
+/*-------------------------------------------------------------
+    1. Typography
+---------------------------------------------------------------*/
+
+* {
+    font-family: $font-df;
+}
+
+/* Responsive typography */
+$large: 2rem;
+$medium: 1.5rem;
+$small: 1rem;
+
+#text {
+    font-size: $small;
+}
+
+#author {
+    font-size: $small;
+}
+
+@media (min-width: 500px) {
+    #text {
+        font-size: $medium;
+    }
+    #author {
+        font-size: $small;
+    }
+}
+
+@media (min-width: 700px) {
+    #text {
+        font-size: $large;
+    }
+    #author {
+        font-size: $medium;
+    }
+}
+
+#copy, #twitter-quote-container {
+    font-size: 2.5rem;
+}
+
+
+/*-------------------------------------------------------------
+    2. Quote box
+---------------------------------------------------------------*/
+
+#quote-box {
+    min-height: 80vh;
+    height: fit-content;
+
+    padding-bottom: 1%;
+    background-color: $dominant;
+}
+
+/*---------------------------
+    a. Category buttons
+-----------------------------*/
+
+/* container */
+#category-btns {
+    justify-content: space-between;
+}
+
+/* buttons */
+.category {
+    width: 100%;
+    border: none;
+    background-color: $accent;
+}
+
+/* selector needed to override bootstrap styling (higher specificity) */
+#category-btns .category:active:focus {
+    background-color: $accent; 
+}
+
+.category:hover, .selected, .category:focus {
+    background-color: $highlight;
+}
+
+/*---------------------------
+    b. Text content
+-----------------------------*/
+
+p {
+    color: $complementary;
+}
+
+#text {
+    padding: 5%;
+}
+
+/*---------------------------
+    c. Bottom buttons
+-----------------------------*/
+
+#new-quote {
+    border: none;
+    background-color: $accent;
+}
+
+#copy, #twitter-quote-container {
+    height: 100%;
+    width: 5vw;
+
+    border: none;
+    background: none;
+    color: $accent;
+}
+
+#tweet-quote {
+    color: $accent /* needed to override icon default colour */
+}
+
+/* Button states */
+#new-quote:hover {
+    background-color: $highlight;
+}
+
+#new-quote:active:focus {
+    background-color: $accent;
+}
+
+#new-quote, #twitter-quote-container, #copy {
+    @include trans;   
+}
+
+#new-quote:hover, #twitter-quote-container:hover, #copy:hover {
+    @include hover;
+}
+
+#copy:hover, #tweet-quote:hover {
+    color: $highlight;
+}
+
+#copy:active:focus {
+    color: $accent;
+}

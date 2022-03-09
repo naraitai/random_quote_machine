@@ -1,0 +1,169 @@
+/*
+freeCodeCamp 'Front End Development Libraries' project
+
+Task: Create a random quote machine.
+Tests: The project has 11 requirements (user stories)
+    Include:
+    1 - A wrapper element with an id of 'quote-box'.
+    2 - An element with an id of 'text' inside 'quote-box'.
+    3 - An element with an id of 'author' inside 'quote-box'.
+    4 - A clickable element witn an id of 'new-quote' inside 'quote-box'
+    5 - A clickable <a> element with an id of 'tweet-quote' inside 'quote-box'.
+    6 - Display a random quote inside 'text' on first load.
+    7 - Display a random quote's author inside 'author' on first load.
+    8 - Display a new random quote inside 'text' on button click.
+    9 - Display a new random quote's author inside 'author' on button click.
+    10 - An <a> element that allows user to post quote to twitter using 'twitter.com/intent/tweet' in href.
+    11 - A horizontally centered 'quote-box' element.
+
+Completion: Submit URL to working project with all tests passing.
+*/
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+        0.  Global Setup
+        1.  Typography
+        2.  Quote box
+            a. Category buttons
+            b. Text content
+            c. Bottom buttons
+----------------------------------------------------------------*/
+/*-------------------------------------------------------------
+    0. Global Setup
+---------------------------------------------------------------*/
+/* Colour palette */
+/* Default font */
+body {
+  height: 100vh;
+  background-color: #161B33;
+}
+
+/*-------------------------------------------------------------
+    1. Typography
+---------------------------------------------------------------*/
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Responsive typography */
+#text {
+  font-size: 1rem;
+}
+
+#author {
+  font-size: 1rem;
+}
+
+@media (min-width: 500px) {
+  #text {
+    font-size: 1.5rem;
+  }
+
+  #author {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 700px) {
+  #text {
+    font-size: 2rem;
+  }
+
+  #author {
+    font-size: 1.5rem;
+  }
+}
+#copy, #twitter-quote-container {
+  font-size: 2.5rem;
+}
+
+/*-------------------------------------------------------------
+    2. Quote box
+---------------------------------------------------------------*/
+#quote-box {
+  min-height: 80vh;
+  height: fit-content;
+  padding-bottom: 1%;
+  background-color: #F0F3F5;
+}
+
+/*---------------------------
+    a. Category buttons
+-----------------------------*/
+/* container */
+#category-btns {
+  justify-content: space-between;
+}
+
+/* buttons */
+.category {
+  width: 100%;
+  border: none;
+  background-color: #01A7C2;
+}
+
+/* selector needed to override bootstrap styling (higher specificity) */
+#category-btns .category:active:focus {
+  background-color: #01A7C2;
+}
+
+.category:hover, .selected, .category:focus {
+  background-color: #EE6C4D;
+}
+
+/*---------------------------
+    b. Text content
+-----------------------------*/
+p {
+  color: #161B33;
+}
+
+#text {
+  padding: 5%;
+}
+
+/*---------------------------
+    c. Bottom buttons
+-----------------------------*/
+#new-quote {
+  border: none;
+  background-color: #01A7C2;
+}
+
+#copy, #twitter-quote-container {
+  height: 100%;
+  width: 5vw;
+  border: none;
+  background: none;
+  color: #01A7C2;
+}
+
+#tweet-quote {
+  color: #01A7C2;
+}
+
+/* Button states */
+#new-quote:hover {
+  background-color: #EE6C4D;
+}
+
+#new-quote:active:focus {
+  background-color: #01A7C2;
+}
+
+#new-quote, #twitter-quote-container, #copy {
+  transition: 0.3s;
+}
+
+#new-quote:hover, #twitter-quote-container:hover, #copy:hover {
+  transform: scale(1.1);
+}
+
+#copy:hover, #tweet-quote:hover {
+  color: #EE6C4D;
+}
+
+#copy:active:focus {
+  color: #01A7C2;
+}
+
+/*# sourceMappingURL=style.css.map */
